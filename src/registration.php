@@ -8,7 +8,7 @@
     <title>Registration</title>
 </head>
 <body>
-    <script src="./scripts/validation.js"></script>
+    <script src="./includes/scripts/validation.js"></script>
     <div>
         <form name="registration" action=".php" method="post">
             <input placeholder="Login" type="text" name="login" minlength="6" autofocus required> 

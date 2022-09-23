@@ -10,8 +10,7 @@ div {
 form{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 300px;
+    justify-content: space-between;    
     width: 200px;
 }
 form, input {

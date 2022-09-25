@@ -1,7 +1,6 @@
 <?php
-    if(isset($_COOKIE) || isset($_SESSION)){
-        $_COOKIE = null;
-        header("Location: /registration.php");        
+    if(empty($_COOKIE)){        
+        header("Location: ./registration.php");        
     }
 ?>
 <!DOCTYPE html>

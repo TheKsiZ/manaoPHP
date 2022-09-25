@@ -1,8 +1,8 @@
 <?php
     class dbUtils{
-        private $path = "../db/users.json";
-        public function Insert(){
-
+        private $path = "../db/users.json";          
+        public function Insert(){   
+            
         }
         public function Read(){
 

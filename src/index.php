@@ -1,7 +1,8 @@
-<?php
-    if(empty($_COOKIE)){        
+<?php    
+    session_start();
+    if(!isset($_COOKIE["username"])){         
         header("Location: ./registration.php");        
-    }
+    }    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,13 +10,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome!</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Welcome!</title>    
 </head>
-<body>    
-    <?php
-        $name = $_COOKIE["username"];
-        echo "<h1>Hello, $name</h1>";
-    ?>
-    <input type="button" value="Exit">
+<body> 
+    <div>   
+        <?php        
+            $name = $_COOKIE["username"];
+            echo "<h1>Hello, $name</h1>";
+        ?>
+        <form action="./scripts/exit.php" method="post">        
+            <input type="submit" value="Exit" name="exit" id="exit">    
+        </form>
+    </div>
 </body>
 </html>

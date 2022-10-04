@@ -4,15 +4,14 @@
         protected $password;
         protected $email;
         protected $name;        
-        /* salt + md5
-        private $salt = "385e33f741";
-        $password = md5($salt . $password);
-        */
+
+        static private $salt = "385e33f741"; //password_hash(); password_verify();
+                
         public function __construct(string $username, string $password, string $email, string $name){
-            $this->username = $username;
-            $this->password = password_hash($password, PASSWORD_DEFAULT);
-            $this->email = $email;
-            $this->name = $name;
+            $this->username = htmlspecialchars($username);
+            $this->password = md5($salt . htmlspecialchars($password));
+            $this->email = htmlspecialchars($email);
+            $this->name = htmlspecialchars($name);
         }        
 
         //Getters
@@ -30,16 +29,16 @@
         }
         //Setters
         public function setUsername(string $username){
-            $this->username = $username;
+            $this->username = htmlspecialchars($username);
         }
         public function setPassword(string $password){
-            $this->password = password_hash($password, PASSWORD_DEFAULT);
+            $this->password = md5($salt . htmlspecialchars($password));
         }
         public function setEmail(string $email){
-            $this->email = $email;
+            $this->email = htmlspecialchars($email);
         }
         public function setName(string $name){
-            $this->name = $name;
+            $this->name = htmlspecialchars($name);
         }
     }
 ?>

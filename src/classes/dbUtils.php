@@ -5,7 +5,7 @@
         private $path = "../db/users.json";                     
 
         //Add a new user to database
-        public function Insert($userToAdd){                           
+        public function Insert(User $userToAdd){                           
             $json = file_get_contents($this->getFile()); 
             $jsonArray = json_decode($json, true);            
             //Push user to all
@@ -30,7 +30,7 @@
             }
         }
         //Edit an user's profile in database
-        public function Edit($userToEdit){
+        public function Edit(User $userToEdit){
             $json = file_get_contents($this->getFile()); 
             $jsonArray = json_decode($json, true);
             foreach($jsonArray as &$user){        
@@ -48,7 +48,7 @@
             file_put_contents($this->getFile(), json_encode($jsonArray));   
         }
         //Delete an user's profile from database
-        public function Delete($userToDelete){
+        public function Delete(User $userToDelete){
             $json = file_get_contents($this->getFile()); 
             $jsonArray = json_decode($json, true);
             //Finding user by username

@@ -19,13 +19,16 @@ $(document).ready(function(){
             method: "POST",
             url: "./scripts/login.php",
             data: $(this).serialize(),            
-            success: function(response) {                                                
-                if(!response){
+            success: function(response) {   
+                if(response.length == 0){ 
                     window.location.href = "./../index.php";
-                }                         
-                else{
-                    $("#invalidError").text(response.slice(1,-1));
                 }
+
+                let json = $.parseJSON(response);                    
+                if(typeof json.ERROR === 'undefined'){                    
+                    window.location.href = "./../index.php";
+                }                                                                               
+                $("#invalidError").text(json.ERROR.invalidError);                
             }
         });
         return false;
@@ -36,16 +39,23 @@ $(document).ready(function(){
             method: "POST",
             url: "./scripts/registrateUser.php",
             data: $(this).serialize(),            
-            success: function(response) {                                
-                if(response[1] == 'u'){
-                    $("#usernameError").text(response.slice(2,-1));
-                }
-                else if(response[1] == 'e'){
-                    $("#emailError").text(response.slice(2,-1));
-                }
-                else{
+            success: function(response) {   
+                if(response.length == 0){ 
                     window.location.href = "./../index.php";
                 }
+                console.log(response);
+
+                let json = $.parseJSON(response); 
+                if(typeof json.ERROR === 'undefined'){
+                    window.location.href = "./../index.php";
+                }                                                            
+                console.log(json);
+                if(typeof json.ERROR.usernameError !== 'undefined'){
+                    $("#usernameError").text(json.ERROR.usernameError);
+                }
+                if(typeof json.ERROR.emailError !== 'undefined'){
+                    $("#emailError").text(json.ERROR.emailError);
+                }                
             }
         });
         return false;

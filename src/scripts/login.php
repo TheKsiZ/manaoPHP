@@ -10,6 +10,6 @@
         setcookie("username", $user->getUsername(), 0, '/');         
     }
     else{
-        var_export($_SESSION["ERROR"]["invalidError"]);
+        echo json_encode($_SESSION, JSON_UNESCAPED_UNICODE);
     }    
 ?>

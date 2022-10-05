@@ -9,14 +9,12 @@
     
     //Validation    
     if(isUsernameCreated($user)){
-        var_export("u" . $_SESSION["ERROR"]["usernameError"]);
-        return;
-        //header("Location: ./../registration.php");        
+        echo json_encode($_SESSION, JSON_UNESCAPED_UNICODE);
+        return;              
     }
     if(isEmailCreated($user)){
-        var_export("e" . $_SESSION["ERROR"]["emailError"]);
-        return;
-        //header("Location: ./../registration.php");        
+        echo json_encode($_SESSION, JSON_UNESCAPED_UNICODE);
+        return;        
     }        
     
     //Save user (cookies + session)
@@ -25,7 +23,4 @@
     setcookie("username", $_SESSION["username"], 0, '/');
     //Adding json to database
     $utils->Insert($user);
-
-    //Returning to main page 
-    header("Location: ./../index.php");
 ?>

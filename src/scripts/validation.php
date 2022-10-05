@@ -7,9 +7,9 @@
         $utils = new dbUtils();    
         $json = file_get_contents($utils->getFile());
         $jsonArray = json_decode($json, true);
+        session_start();
         foreach($jsonArray as $user){
-            if($user["username"] == $currentUser->getUsername()){
-                session_start();
+            if($user["username"] == $currentUser->getUsername()){                
                 $_SESSION["ERROR"]["usernameError"] = "Пользователь с таким именем уже был создан.";
                 return true;
             }
@@ -25,9 +25,9 @@
         $utils = new dbUtils();
         $json = file_get_contents($utils->getFile());
         $jsonArray = json_decode($json, true);
+        session_start();
         foreach($jsonArray as $user){
-            if($user["email"] == $currentUser->getEmail()){
-                session_start();
+            if($user["email"] == $currentUser->getEmail()){                
                 $_SESSION["ERROR"]["emailError"] = "Пользователь с такой почтой уже был создан.";
                 return true;
             }

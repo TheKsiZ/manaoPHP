@@ -24,7 +24,7 @@
             <input placeholder="Password" type="password" id="password" name="password" minlength="6" onkeyup="validate_passwords()" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$" title="Пароль должен содержать латинские буквы (a-Z) и цифры (0-9)" required> 
             <input placeholder="Confirm password" type="password" id="confirmpassword" name="confirmpassword" onkeyup="validate_passwords()" required>             
             <span id="errorPassword"></span>
-            <input placeholder="Email" type="text" name="email" pattern="^(?=.{1,64}@)[A-Za-z0-9_-]+(\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*(\.[A-Za-z]{2,})$" title="Неверный формат почты" required>
+            <input placeholder="Email" type="text" name="email" pattern="^(?=.{1,64}@)[A-Za-z0-9_-]+(\.[A-Za-z0-9_-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*(\.[A-Za-z]{2,})$" title="Неверный формат почты" required>
             <span id="emailError"></span>
             <input placeholder="Name" type="text" name="name" minlength="2" pattern="^[A-Za-z]+$" title="Имя должно содержать только латинские символы (a-z)" required> 
             
